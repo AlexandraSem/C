@@ -1,0 +1,32 @@
+#include<stdio.h>
+
+int main()
+{
+	float temperature[7];
+	float averageTemperature;
+	for (int i = 0; i < 7; i++)
+	{
+		printf("Enter the temperature of the %i day : ",i + 1);
+		scanf_s("%f", &temperature[i]);
+	}
+	averageTemperature = (temperature[0] + temperature[1] + temperature[2] + temperature[3] + temperature[4] + temperature[5] + temperature[6]) / 7;
+	printf("Average temperature is %.2f\n", averageTemperature);
+	float max = temperature[0];
+	for (int g = 0; g < 7; g++)
+	{
+		if (max < temperature[g])
+		{
+			max = temperature[g];
+		}
+	}
+	float min = temperature[0];
+	for (int g = 0; g < 7; g++)
+	{
+		if (min > temperature[g])
+		{
+			min = temperature[g];
+		}
+	}
+	printf("The max temperature is %.2f\n",max);
+	printf("The min temperature is %.2f\n",min);
+}
