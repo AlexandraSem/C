@@ -1,0 +1,51 @@
+#include <stdio.h>
+ 
+int main()
+{
+    int array[] = { 0, 3, 8, 5, 7, 0, 4 };
+    int const arraySize = sizeof(array) / sizeof(int);
+ 
+    for (int i = 0; i < arraySize; i++)
+    {
+        printf("%i ", array[i]);
+    }
+    printf("\n");
+ 
+    for (int i = 0; i < arraySize - 1; i++)
+    {
+        if (array[i] > array[i + 1])
+        {
+            int buff = array[i];
+            array[i] = array[i + 1];
+            array[i + 1] = buff;
+        }
+ 
+        int j = i;
+        int buff = array[j];
+        while (j > 0 &&
+            array[j - 1] > buff)
+        {
+            array[j] = array[j - 1];
+            j--;
+ 
+            for (int k = 0; k < arraySize; k++)
+            {
+                printf("%i ", array[k]);
+            }
+            printf("\n");
+        }
+        array[j] = buff;
+ 
+        for (int k = 0; k < arraySize; k++)
+        {
+            printf("%i ", array[k]);
+        }
+        printf("\n");
+    }
+ 
+    for (int i = 0; i < arraySize; i++)
+    {
+        printf("%i ", array[i]);
+    }
+    printf("\n");
+}
