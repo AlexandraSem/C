@@ -1,0 +1,36 @@
+#include <stdio.h>
+
+int main()
+{
+	int a = 5;
+	float b = 5.6;
+	long c = 155;
+	char d = 1;
+	double e = 34.6;
+
+	int* pI1 = &a;
+	float* pI2 = &b;
+	long* pI3 = &c;
+	char* pI4 = &d;
+	double* pI5 = &e;
+
+	printf("0x%p\n", pI1);
+	printf("%i\n", *pI1);
+	printf("%i\n", sizeof(pI1));
+
+	printf("0x%p\n", pI2);
+	printf("%1.1f\n", *pI2);
+	printf("%i\n", sizeof(pI2));
+
+	printf("0x%p\n", pI3);
+	printf("%i\n", *pI3);
+	printf("%i\n", sizeof(pI3));
+
+	printf("0x%p\n", pI4);
+	printf("%c\n", *pI4);
+	printf("%i\n", sizeof(pI4));
+
+	printf("0x%p\n", pI5);
+	printf("%2.1f\n", *pI5);
+	printf("%i\n", sizeof(pI5));
+}
