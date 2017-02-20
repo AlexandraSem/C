@@ -34,14 +34,3 @@ int main()
 	printf("%2.1f\n", *pI5);
 	printf("%i\n", sizeof(pI5));
 }
-
-/*#include <stdio.h>
-
-int main()
-{
-	int i = 5;
-	int *pI = &i;
-
-	++(*pI);
-	printf("%i\n",*pI);
-}*/
