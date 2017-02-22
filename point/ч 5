@@ -1,0 +1,12 @@
+#include <stdio.h>
+
+
+int main()
+{
+	int i = 100;
+	int *pI = NULL;
+	for (pI = &i; pI < &i + 4; pI++)
+	{
+		printf("0x%p\n",pI);
+	}
+}
