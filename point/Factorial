@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+void getFactorial(int n, int * result);
+
+int main()
+{
+	int const n = 3;
+	int result = 1;
+	getFactorial(n,&result);
+	printf("Factorial[%i] = %i\n",n,result);
+}
+void getFactorial(int n, int * result)
+{
+	if (n < 2)
+	{
+		return;
+	}
+	getFactorial(n - 1, result);
+	*result = n*(*result);
+}
