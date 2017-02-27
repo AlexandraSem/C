@@ -1,0 +1,13 @@
+#include <stdio.h>
+#include <Windows.h>
+
+void main()
+{
+	HMODULE dll = LoadLibraryA(
+		"c:\\windows\\system32\\user32.dll");
+
+	void(*pA)();
+	pA = (void(*)())GetProcAddress(dll, "MessageBoxA");
+
+	printf("%p\n", pA);
+}
