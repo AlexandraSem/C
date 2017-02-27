@@ -1,0 +1,24 @@
+//Указатель на функцию
+//a fuction pointer
+#include <stdio.h>
+#include <Windows.h>
+
+int WINAPI MessageBox(
+	HWND    hWnd,
+	LPCTSTR lpText,
+	LPCTSTR lpCaption,
+	UINT    uType
+	);
+
+void main()
+{
+	HMODULE dll = LoadLibraryA(
+		"c:\\windows\\system32\\user32.dll");
+
+	int(*pA)(HWND, LPCTSTR, LPCTSTR, UINT);
+	pA = (int(*)(HWND, LPCTSTR, LPCTSTR, UINT))GetProcAddress(dll, "MessageBoxA");
+
+	pA(NULL,"text text text","title title title", MB_OKCANCEL);
+
+	
+}
