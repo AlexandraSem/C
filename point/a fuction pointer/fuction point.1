@@ -1,0 +1,28 @@
+#include<stdio.h>
+
+void fff1();
+void fff2();
+void fff3();
+
+int main()
+{
+
+	fff1(*fff1);
+	fff2(*fff2);
+	fff3(*fff2);
+}
+
+void fff1()
+{
+	printf("fff1\n");
+}
+
+void fff2()
+{
+	printf("fff2\n");
+}
+
+void fff3()
+{
+	printf("fff3\n");
+}
