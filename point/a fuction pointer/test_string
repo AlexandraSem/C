@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+int lenght(char*str);
+
+int main()
+{
+	char str[255];
+	fgets(str, 255, stdin);
+	lenght(&str);
+	printf("%s", str);
+	printf("%i", lenght(str));
+}
+int lenght(char*str)
+{
+	int count = 0;
+	while (*str !=0)
+	{
+		count++;
+		str++;
+	}
+	return count;
+}
