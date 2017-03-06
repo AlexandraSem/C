@@ -1,0 +1,23 @@
+#include <stdio.h>
+#define MAX_SIZE 256
+
+int lenght(char*str);
+
+int main()
+{
+	char str[MAX_SIZE];
+	fgets(str, 255, stdin);
+	len(&str);
+	printf("%i", len(str));
+}
+int len(char*str)
+{
+	int lenght = 0;
+
+	while (*str != 0)
+	{
+		lenght++;
+		str++;
+	}
+		return lenght - 1;
+}
