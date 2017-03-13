@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+void changeCase(char *str);
+void printArray(char *str);
+
+int main()
+{
+	char str[] = "hello";
+	int leight = sizeof(str);
+	changeCase(&str);
+	printArray(&str);
+}
+
+void changeCase(char *str)
+{
+	for (int i = 0; str[i]!=0; i++)
+	{
+		char ch = str[i];
+		if (ch >= 'a' && ch <= 'z')
+		{
+			str[i] = ch - 32;
+		}
+	}
+}
+
+void printArray(char *str)
+{
+	for (int i = 0; str[i]!=0; i++)
+	{
+		printf("%c", str[i]);
+	}
+	printf("\n");
+}
