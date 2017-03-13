@@ -1,0 +1,35 @@
+enum Case
+{
+    LowerCase,
+    UpperCase
+};
+ 
+void changeCase(char* string,
+    enum Case changeToCase)
+{
+    while (*string != '\0')
+    {
+        char ch = *string;
+        if (changeToCase == UpperCase
+            && ch >= 'a' && ch <= 'z')
+        {
+            *string -= 32;
+        }
+        else if (changeToCase == LowerCase
+            && ch >= 'A' && ch <= 'Z')
+        {
+            *string += 32;
+        }
+        string++;
+    }
+}
+ 
+int main()
+{
+    char string[] = "dfdf kfdjk kldfj ljf dLKJJFDFDsf fdsf";
+ 
+    changeCase(string, UpperCase);
+    printf("%s\n", string);
+    changeCase(string, LowerCase);
+    printf("%s\n", string);
+}
