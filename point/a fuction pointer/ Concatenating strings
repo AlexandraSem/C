@@ -1,0 +1,36 @@
+#include <stdio.h>//объединение строк
+
+void sayHello(char const* greatingStart, char const* greatingEnd, char const* name, char const* result);
+
+void myStrCat(char* str1, char* str2)
+{
+	while (*str1 != 0)
+	{
+		str1++;
+	}
+	while (*str2 != 0)
+	{
+		*str1 = *str2;
+		str1++;
+		str2++;
+	}
+}
+
+int main()
+{
+	char greatingStart[] = "Hello, ";
+	char greatingEnd[] = "! Nice to meet you.";
+	char name[256] = " ";
+	char result[1024] = " ";
+	printf("What is you name?\n");
+	scanf("%s", &name);
+	sayHello(&greatingStart, &greatingEnd, &name, &result);
+	printf("%s",result);
+}
+void sayHello(char const* greatingStart, char const* greatingEnd, char const* name, char const* result)
+{
+	myStrCat(result, greatingStart);
+	myStrCat(result, name);
+	myStrCat(result, greatingEnd);
+}
+---------------------------------------
