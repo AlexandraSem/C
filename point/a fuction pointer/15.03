@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+#define MAX_SIZE 25
+void strCopy(char* src,char* dst);
+
+int main()
+{
+	int cell[MAX_SIZE];
+	char src[MAX_SIZE];
+	char dst[MAX_SIZE];
+	fgets(src, 25, stdin);
+	strCopy(&src, &dst);
+}
+
+void strCopy(char* src, char* dst)
+{
+	for (int i = 0; src[i]!= 0 && src !='\n'; i++)
+	{
+		dst[i] = src[i];
+		printf("Number = %c \n",dst[i]);
+	}
+}
+------------------------------------
+
