@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+void isEqual(char* str1, char* str2)
+{
+	while (*str2 != 0)
+	{
+		if (*str1 == *str2)
+		{
+			printf("True");
+		}
+		else
+		{
+			printf("False");
+			break;
+		}
+		str1++;
+		str2++;
+	}
+}
+
+int main()
+{
+	char name[256] = " ";
+	char anagramName[256] = " ";
+	printf("Enter 1st string: \n");
+	scanf("%s", &name);
+	printf("Enter 2nd string: \n");
+	scanf("%s", &anagramName);
+	isEqual(&name, &anagramName);
+}
