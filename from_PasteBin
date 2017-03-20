@@ -106,3 +106,88 @@ int main()
    
     printArray(addressBook, 2, 10);
 }
+-----------------------------
+#include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
+ 
+#define BOOK_COUNT 3
+#define NAME_LENGTH 50
+#define AUTHOR_LENGTH 30
+ 
+struct Book
+{
+    char Author[AUTHOR_LENGTH];
+    char Name[NAME_LENGTH];
+    int Year;
+};
+ 
+void cleanInput()
+{
+    char ch;
+    do
+    {
+        ch = getchar();
+    } while (ch != '\n' && ch != EOF);
+}
+ 
+void printLibrary(struct Book books[BOOK_COUNT],
+    int count)
+{
+    for (int i = 0; i < BOOK_COUNT; i++)
+    {
+        printf("---\nBook name: %s\n", books[i].Name);
+        printf("Author: %s\n", books[i].Author);
+        printf("Year: %i\n", books[i].Year);
+    }
+}
+ 
+int bookCompare(struct Book book1,
+    struct Book book2)
+{
+    return strcmp(book1.Name, book2.Name);
+}
+ 
+void sortLibrary(struct Book books[BOOK_COUNT],
+    int count)
+{
+    for (size_t i = 0; i < BOOK_COUNT - 1; i++)
+    {
+        for (size_t j = 0; j < BOOK_COUNT - i - 1; j++)
+        {
+            if (bookCompare(books[j], books[j + 1]))
+            {
+                struct Book tmp = books[j];
+                books[j] = books[j + 1];
+                books[j + 1] = tmp;
+            }
+        }
+    }
+}
+ 
+int main()
+{
+    struct Book books[BOOK_COUNT] =
+    {
+        {
+            .Name = "Book3",
+            .Author = "Author3",
+            .Year = 2013
+        },
+        {
+            .Name = "Book2",
+            .Author = "Author2",
+            .Year = 2017
+        },
+        {
+            .Name = "Book1",
+            .Author = "Author1",
+            .Year = 2016
+        }      
+    };
+ 
+    printLibrary(books, BOOK_COUNT);
+    sortLibrary(books, BOOK_COUNT);
+    printf("===== After sorting ======");
+    printLibrary(books, BOOK_COUNT);
+}
