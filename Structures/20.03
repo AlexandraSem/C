@@ -1,0 +1,38 @@
+#include <stdio.h>
+
+struct Book
+{
+	char name[10][50];
+	char anthor[10][50];
+	char genge[10][50];
+	int year;
+};
+
+int main()
+{
+	struct Book book[10];
+	for (int i = 0; i < 10; i++)
+	{
+		printf("Enter book name : ");
+		scanf("%s", book[i].name);
+		
+
+		printf("Enter book author : ");
+		scanf("%s", book[i].anthor);
+		
+
+		printf("Enter book genge : ");
+		scanf("%s", book[i].genge);
+		
+
+		printf("Enter book year : ");
+		scanf("%i", &book[i].year);
+
+		printf("Book name: %s\n", book[i].name);
+		printf("Book author: %s\n", book[i].anthor);
+		printf("Book genge: %s\n", book[i].genge);
+		printf("Book year: %i\n", book[i].year);
+	}
+
+}
+-------------------------------------
