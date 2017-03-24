@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <string.h>
+
+struct Folder
+{
+	char Name[256];
+	struct Folder* Children;
+	int ChildrenCount;
+};
+
+void addFolder(struct Folder* folder, char* newFolderName)
+{
+	struct Folder* newChild = &folder->Children[folder->ChildrenCount];
+	strcpy(newChild->Name,newFolderName);
+	newChild->Children = NULL;
+	newChild->ChildrenCount = 0;
+	folder->ChildrenCount++;
+	
+}
+
+int main()
+{
+	struct Folder diskCFolders[20];
+
+	struct Folder diskC;
+	strcpy(diskC.Name, "C:");
+	diskC.ChildrenCount = 0;
+	diskC.Children = diskCFolders;
+
+	addFolder(&diskC, "AMD");
+	addFolder(&diskC, "Apache24");
+	addFolder(&diskC, "inetpub");
+
+
+	printf("%s\n", diskC.Name);
+	for (int i = 0; i < diskC.ChildrenCount; i++)
+	{
+		printf("\t%s\n", diskC.Children[i].Name);
+	}
+	return 0;
+}
+-------------------------------------------------
