@@ -1,17 +1,19 @@
 #include <stdio.h>
 
+#define SIZE 10
+
 struct Book
 {
-	char name[10][50];
-	char anthor[10][50];
-	char genge[10][50];
+	char name[50];
+	char anthor[50];
+	char genge[50];
 	int year;
 };
 
 int main()
 {
-	struct Book book[10];
-	for (int i = 0; i < 10; i++)
+	struct Book book[SIZE];
+	for (int i = 0; i < SIZE; i++)
 	{
 		printf("Enter book name : ");
 		scanf("%s", book[i].name);
@@ -33,6 +35,4 @@ int main()
 		printf("Book genge: %s\n", book[i].genge);
 		printf("Book year: %i\n", book[i].year);
 	}
-
 }
--------------------------------------
