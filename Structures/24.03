@@ -40,3 +40,27 @@ int main()
 	return 0;
 }
 -------------------------------------------------
+#include <stdio.h>
+#include <string.h>
+
+struct CarStruct
+{
+	char model[50];
+	char make[50];
+	int year;
+};
+
+union Car
+{
+	char model[50];
+	char make[50];
+	int year;
+};
+
+
+int main()
+{
+	printf("Struct size %i\n", sizeof(struct CarStruct));
+	printf("Union size %i\n", sizeof(union Car));
+}
+-------------------------------------------------
