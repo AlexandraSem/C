@@ -1,0 +1,52 @@
+#include <stdio.h>
+#include <string.h>
+
+union Data
+{
+	int a;
+	float b;
+	char c[50];
+};
+
+int main()
+{
+	union  Data data;
+	data.a = 89;
+	data.b = 14.5;
+	data.c[50] = "Hello";
+}
+---------------------------
+	int *ptrVar = malloc(4);
+	ptrVar = 5;
+	printf("%i",ptrVar);
+---------------------------
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include<Windows.h>
+
+int main()
+{
+	int *userMemory = malloc(4);
+	scanf("%i", userMemory);
+	int heap = (*userMemory * 1024) * 1024;
+	char *ch = malloc(heap);
+	system("pause");
+}
+---------------------------
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <Windows.h>
+
+int main()
+{
+	int *Memory = malloc(100);
+	int n = 4;
+	for (int i = 0; i < n; i++)
+	{
+		int *Memory = malloc((100*1024)*1024);
+	}
+	system("pause");
+}
+---------------------------
