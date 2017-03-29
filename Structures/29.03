@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+/*5 фио 50
+динам.массив
+сорт. ABCвозр*/
+
+#define ARRAY_SIZE 3
+
+int main()
+{
+	char** list = malloc(ARRAY_SIZE*(sizeof(char*)));
+
+	for (int i = 0; i < ARRAY_SIZE; i++)
+	{
+		list[i] = malloc(50 * sizeof(char));
+		fgets(list[i], 50, stdin);
+	}
+
+	for (int i = 0; i < ARRAY_SIZE - 1; i++)
+	{
+		for (int j = 0; j < ARRAY_SIZE - 1 - i; j++)
+		{
+			if (strcmp(list[j], list[j + 1]) == 1)
+			{
+				char* temp = list[j];
+				list[j] = list[j + 1];
+				list[j + 1] = temp;
+			}
+		}
+	}
+	for (int i = 0; i < ARRAY_SIZE; i++)
+	{
+		printf("ARR[%i] = %s\n",i,list[i]);
+	}
+
+}
+-----------------------------------------------
