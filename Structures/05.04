@@ -11,6 +11,8 @@ int main()
 {
 	int i = 0;
 	struct St** st = malloc(sizeof(struct St));
+	/*struct St** st;
+	st = malloc(5 * sizeof(struct St));*/
 	for (i = 0; i < 4; i++)
 	{
 		*(st + i) = malloc(sizeof(struct St));
