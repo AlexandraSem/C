@@ -85,3 +85,42 @@ int main()
 	free(st);
 }
 --------------------
+#include <stdio.h>
+#include <stdlib.h>
+#include <Windows.h>
+
+struct St
+{
+	float Data;
+	struct St* Next;
+};
+
+void print(struct St* list)
+{
+	while (list != 0)
+	{
+		printf("Data: %.2f\n", list->Data);
+		list = list->Next;
+	}
+}
+struct St* allocItem(float data,struct St* previos)
+{
+	struct St* item = malloc(sizeof(struct St));
+	item->Data = data;
+	item->Next = NULL;
+
+	if (previos != NULL)
+	{
+		previos->Next = item;
+	}
+	return item;
+}
+
+void main()
+{
+	struct St* first  = allocItem(111.11,NULL);
+	struct St* second = allocItem(13.12, first);
+	struct St* third = allocItem(423.3, second);
+
+	print(first);
+}
