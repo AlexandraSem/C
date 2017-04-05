@@ -54,3 +54,34 @@ int main()
 		free(*(st + i));
 	}
 }
+-----------------
+#include <stdio.h>
+#include <stdlib.h>
+#include <Windows.h>
+
+struct St
+{
+	int k;
+	float f;
+	char ch;
+};
+
+int main()
+{
+	int i = 0;
+	struct St** st;
+	st = malloc(5 * sizeof(struct St*));
+	for (int i = 0; i < 4; i++)
+	{
+		*(st + i) = malloc(sizeof(struct St));
+	}
+	(*(*(st + i))).k = 5;
+	printf("%i", (*(*(st +i))).k);
+
+	for (i = 0; i < 4; i++)
+	{
+		free(*(st + i));
+	}
+	free(st);
+}
+--------------------
