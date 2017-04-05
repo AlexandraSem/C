@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+struct St
+{
+	int k;
+	float f;
+	char ch;
+};
+
+int main()
+{
+	int i = 0;
+	struct St** st = malloc(sizeof(struct St));
+	for (i = 0; i < 4; i++)
+	{
+		*(st + i) = malloc(sizeof(struct St));
+	}
+	(*((*st) + 1)).f = 2.5;
+	printf("%.2f", (*((*st +i) + 1)).f);
+
+	for (i = 0; i < 4; i++)
+	{
+		free(*(st + i));
+	}
+}
+--------------------
