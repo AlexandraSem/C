@@ -1,0 +1,58 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+enum Flag
+{
+	Manual = 1<<0,
+	Pessenger = 1<<1,
+	Electric = 1<<2,
+	RightWeel = 1<<3,
+
+};
+void printCar(char car)
+{
+	if (car & Manual)
+	{
+		printf("Manual\n");
+	}
+	else
+	{
+		printf("Automatic\n");
+	}
+
+	if (car & Electric)
+	{
+		printf("Electric\n");
+	}
+	else
+	{
+		printf("Not electric\n");
+	}
+
+	if (car & Pessenger)
+	{
+		printf("Pessenger\n");
+	}
+	else
+	{
+		printf("Freight\n");
+	}
+
+	if (car & RightWeel)
+	{
+		printf("Right wheel\n");
+	}
+	else
+	{
+		printf("Left wheel\n");
+	}
+}
+int main()
+{
+	char car = 0;
+	car |= RightWeel | Electric | Pessenger;
+	//car &= ~Electric;
+	printCar(car);
+	
+}
+----------------------------
