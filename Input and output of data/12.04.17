@@ -1,0 +1,14 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+	FILE* file = fopen("c:\\windows\\system.ini","r");
+	char* buff = malloc(256);
+	while (fgets(buff, 256, file))
+	{
+		printf("%s", buff);
+	}
+	fclose(file);
+}
+--------------------------------
