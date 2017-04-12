@@ -12,3 +12,13 @@ int main()
 	fclose(file);
 }
 --------------------------------
+fseek(file, 25, SEEK_SET)
+
+SEEK_SET - начало
+SEEK_CUR - текущая позиция
+SEEK_END - конец
+--------------
+fseek(file, 0, SEEK_END);
+long fileSize = ftell(file);
+printf("file size: %i\n", fileSize);
+--------------
