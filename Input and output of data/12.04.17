@@ -22,3 +22,33 @@ fseek(file, 0, SEEK_END);
 long fileSize = ftell(file);
 printf("file size: %i\n", fileSize);
 --------------
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+	FILE* file = fopen("C:\\Windows\\system.ini","r");
+	FILE* file1 = fopen("D:\\system1.ini","w");
+	
+	char* buff = malloc(256);
+
+	while (fgets(buff, 256, file))
+	{
+		printf("%s", buff);
+		fputs(buff, file1);
+	}
+	if (file == NULL)
+	{
+		printf("Error:can't open file");
+		return 1;
+	}
+	if (file1 == NULL)
+	{
+		printf("Error:can't open file\nTry again");
+		return 1;
+	}
+	
+	fclose(file);
+	fclose(file1);
+}
+------------------------------
