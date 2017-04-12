@@ -51,4 +51,49 @@ int main()
 	fclose(file);
 	fclose(file1);
 }
-------------------------------
+------------------------------//незакончено
+#include <stdio.h>
+#include <stdlib.h>
+
+void copyFile(char* fromAdress,char* toAdress)
+{
+	FILE* file = fopen(fromAdress, "r");
+	FILE* file1 = fopen(toAdress, "w");
+
+	if (file == NULL)
+	{
+		printf("Error:can't open file");
+		return 1;
+	}
+	if (file1 == NULL)
+	{
+		printf("Error:can't open file\nTry again");
+		return 1;
+	}
+
+	char* buff = malloc(256);
+
+	while (fgets(buff, 256, file))
+	{
+		printf("%s", buff);
+		fputs(buff, file1);
+	}
+
+
+	fclose(file);
+	fclose(file1);
+	free(buff);
+}
+int main()
+{
+	char* fromAdress = " ";
+	char* toAdress = " ";
+	//FILE* file = fopen("C:\\Windows\\system.ini", "r");
+	//FILE* file1 = fopen("D:\\system1.ini", "w");
+
+	printf("From adress: ");
+	fgets(fromAdress, 256, stdin);
+	printf("To adress: ");
+	fgets(toAdress, 256, stdin);
+	copyFile(fromAdress, toAdress);//c:\\from.file
+}
