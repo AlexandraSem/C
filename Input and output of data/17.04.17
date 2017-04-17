@@ -26,3 +26,58 @@ int main()
 	free(buff);
 }
 -----------------------
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main()
+{
+	FILE* file = fopen("D:\\temp.file", "r");
+	char* buff = malloc(2*1024*1024);
+	int fileSize = 5;
+
+	char* nameBuff = malloc(10);
+	char* strBuff = malloc(256);
+	fgets(strBuff, 256, file);
+	char* fileToName = malloc(100);
+
+	for (int i = 0; i < buff; i++)
+	{
+		strcpy(fileToName, "D:\\");
+		sprintf(nameBuff, "%d", i);
+		strcat(fileToName, nameBuff);
+		strcat(fileToName, ".bond");
+		FILE* file1 = fopen(fileToName, "w");
+		long position;
+		position = ftell(file1);
+		while (position < fileSize * 1024 * 1024)
+		{
+			fputs(strBuff, file1);
+			position = ftell(file1);
+		}
+		fclose(file1);
+	}
+
+	while (fgets(buff, 256, file))
+	{
+		char* searchResult = strchr(buff, '\n');
+		if (searchResult == NULL)
+		{
+			printf("%s", buff);
+		}
+		else
+		{
+			*searchResult = '\0';
+			printf("%s", buff);
+			break;
+		}
+	}
+
+	fclose(file);
+	free(buff);
+	free(fileToName);
+	free(nameBuff);
+	free(strBuff);
+}/*int aInt = 368;
+	char str[15];
+	sprintf(str, "%d", aInt);*/
