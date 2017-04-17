@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main()
+{
+	FILE* file = fopen("D:\\1.txt", "r");
+	char* buff = malloc(256);
+
+	while (fgets(buff, 256, file))
+	{
+		char* searchResult = strchr(buff, '\n');
+		if (searchResult == NULL)
+		{
+			printf("%s", buff);
+		}
+		else
+		{
+			*searchResult = '\0';
+			printf("%s", buff);
+			break;
+		}
+	}
+
+	fclose(file);
+	free(buff);
+}
+-----------------------
