@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define STRING_SIZE 256
+
+void stringToFile(char const* const str)
+{
+	FILE* f = fopen("d:\\tmp.bin", "wb");
+	fwrite(str, STRING_SIZE,1, f);
+	fclose(f);
+}
+void stringFromFile(char* str)
+{
+	FILE* f = fopen("d:\\tmp.bin", "r");
+	fread(str, STRING_SIZE, 1, f);
+	fclose(f);
+}
+
+int main()
+{	
+	char* buff = malloc(STRING_SIZE);
+	stringToFile(buff);
+	/*for (int i = 0; i < STRING_SIZE; i++)
+	{
+		buff[i] = 0;
+	}*/
+	memset(buff,0, STRING_SIZE);
+	stringFromFile(buff);
+	printf("From: %s",buff);
+	free(buff);
+}
+------------------------
+
