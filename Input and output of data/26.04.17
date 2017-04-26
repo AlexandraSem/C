@@ -1,0 +1,72 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+struct Currency
+{
+	float BuyUSD;
+	float BuyEUR;
+	float SellUSD;
+	float SellEUR;
+	char BankName;
+};
+//	FILE* f = fopen("d:\\tmp.bin", "wb");
+//	strcpy(str, "Rise");
+//	fseek(f, 1, SEEK_CUR);
+//	FILE* f = fopen("d:\\tmp.bin", "rb");
+//	fread(str, STRING_SIZE, 1, f);
+//}
+
+int main()
+{
+	struct Currency currency;
+	FILE* file = fopen("d:\\currency.txt", "rb");
+	if (file == NULL)//rec
+	{
+
+		
+		file = fopen("d:\\currency.bin", "wb");
+
+		printf("Enter BuyUSD: ");
+		scanf("%f", &currency.BuyUSD);
+
+		printf("Enter BuyEUR: ");
+		scanf("%f", &currency.BuyEUR);
+
+
+		printf("Enter SellUSD: ");
+		scanf("%f", &currency.SellUSD);
+
+
+
+		printf("Enter SellEUR: ");
+		scanf("%f", &currency.SellEUR);
+
+
+		printf("Enter Bank name: ");
+		scanf("%s", &currency.BankName);
+		fwrite(&currency, sizeof(struct Currency), 1, file);
+
+		
+		//fseek(file,1,SEEK_CUR);
+		
+		//fgets(buff, 256, file);
+		
+		//fputs(buff, file);
+
+		fclose(file);
+		return 0;
+	}
+
+
+	fread(&currency, sizeof(struct Currency), 1, file);
+	printf("%f",currency.BuyUSD);
+	printf("%f", currency.BuyEUR);
+	printf("%f", currency.SellUSD);
+	printf("%f", currency.SellEUR);
+	printf("%s", currency.BankName);
+	fclose(file);
+	//stringToFile(buff);
+	/*memset(buff, 0, STRING_SIZE);
+	stringFromFile(buff);*/
+}
