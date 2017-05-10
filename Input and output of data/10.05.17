@@ -223,3 +223,11 @@ __FUNCTION__" start");
 #define LOG_FN_FINISH(arg) printf("[%d] %s\n", time(0),\
 __FUNCTION__ " end");
 ----------------------------------------
+#ifdef __STDC_VERSION__
+	printf("STDC_VERSION: %s", STDC_VERSION);
+#endif
+#ifndef true
+#include <stdbool.h>
+#endif
+#undef true//при true работать не будет
+#define true false :D
