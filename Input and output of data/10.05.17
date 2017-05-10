@@ -65,3 +65,4 @@ do {
 		printf("File found: %s.", found.cFileName);
 	} while (FileNextFileA(findResult, &found);
 -------------------------------------------
+int main(int argc,char* argv[])
