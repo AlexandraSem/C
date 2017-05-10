@@ -1,0 +1,67 @@
+#include <Windows.h>
+#include <stdio.h>
+ 
+int main()
+{
+    WIN32_FIND_DATAA found;
+    HANDLE findResult =
+        FindFirstFileA(
+            "D:\\Winners\\*.jpg",
+            &found);
+ 
+    if (findResult == INVALID_HANDLE_VALUE)
+    {
+        printf("Files not found.");
+        return 1;
+    }
+ 
+    printf("File found.");
+}
+----------------------------
+#include <Windows.h>
+#include <stdio.h>
+
+int main()
+{
+	WIN32_FIND_DATAA found;
+	HANDLE findResult =
+		FindFirstFileA(
+			"D:\\Winners\\*.bin",
+			&found);
+
+	if (findResult == INVALID_HANDLE_VALUE)
+	{
+		printf("Files not found.");
+		return 1;
+	}
+
+	printf("File found:%s.",found.cFileName);
+}
+-------------------------------------------
+#include <Windows.h>
+#include <stdio.h>
+
+int main()
+{
+	WIN32_FIND_DATAA found;
+	HANDLE findResult =
+		FindFirstFileA(
+			"D:\\Winners\\*.bin",
+			&found);
+
+	if (findResult == INVALID_HANDLE_VALUE)
+	{
+		printf("Files not found.");
+		return 1;
+	}
+	while (FileNextFileA(findResult, &found) != INVALID_HANDLE_VALUE)
+	{
+		printf("File found: %s.", found.cFileName);
+	}
+
+}
+---------------------------------------------
+do {
+		printf("File found: %s.", found.cFileName);
+	} while (FileNextFileA(findResult, &found);
+-------------------------------------------
