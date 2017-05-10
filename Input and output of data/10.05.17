@@ -140,3 +140,43 @@ int main()
 	FindClose(findResult);
 }
 -------------------------------------------
+#include <stdbool.h>
+#include <Windows.h>
+
+void foo();
+void foo1();
+
+void foo()
+{
+	printf("[%d] %s\n", time(0),
+		"foo start");
+
+	Sleep(1000);
+	foo1();
+
+	printf("[%d] %s\n", time(0),
+		"foo end");
+}
+
+void foo1()
+{
+	printf("[%d] %s\n", time(0),
+		"foo1 start");
+
+	Sleep(1000);
+
+	printf("[%d] %s\n", time(0),
+		"foo1 end");
+}
+
+int main()
+{
+	printf("[%d] %s\n", time(0),
+		"main start");
+
+	foo();
+
+	printf("[%d] %s\n", time(0),
+		"main end");
+}
+-----------------------------------------
