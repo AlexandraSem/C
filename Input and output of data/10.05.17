@@ -231,3 +231,50 @@ __FUNCTION__ " end");
 #endif
 #undef true//при true работать не будет
 #define true false :D
+--------------------------------------
+//#include <stdbool.h>
+#include <stdio.h>
+#include <Windows.h>
+
+//arg(foo)->#arg = "foo"
+#define LOG_FN_START(arg) printf("[%d] %s\n", time(0),\
+__FUNCTION__" start");
+#define LOG_FN_FINISH(arg) printf("[%d] %s\n", time(0),\
+__FUNCTION__ " end");
+
+void foo();
+void foo1();
+
+void foo()
+{
+	LOG_FN_START("foo")
+
+	Sleep(1000);
+	foo1();
+
+	LOG_FN_FINISH("foo")
+
+}
+
+void foo1()
+{
+	LOG_FN_START("foo1");
+	Sleep(1000);
+	LOG_FN_FINISH("foo1")
+
+}
+
+int main()
+{
+	LOG_FN_START("main")
+	foo();
+	LOG_FN_FINISH("main")
+#undef true
+#ifdef __STDC_VERSION__
+	printf("STDC_VERSION: %s", STDC_VERSION);
+#endif
+#ifndef true
+#include <stdbool.h>
+#endif
+}
+----------------------------------
