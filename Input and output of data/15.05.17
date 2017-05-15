@@ -36,5 +36,49 @@ int main()
 	PRINT(left, right);
 }
 ----------------------------
-
-
+1 in 3
+/*#pragma once  car.h
+void start()
+{
+	
+}
+void stop()
+{
+	
+}
+void speedUp()
+{
+	
+}
+void slowDown()
+{
+	
+}*/
+/*
+#pragma once  S.c
+enum CarType
+{
+	Cargo,
+	Passenger
+};
+void start();
+void stop();
+void speedUp();
+void slowDown();
+*/
+/*#include <stdio.h>  v.c
+#include "car.h"
+enum CarType
+{
+	Cargo,
+	Passenger
+};
+int main()
+{
+	enum CarType carType = Cargo;
+}
+void start();
+void stop();
+void speedUp();
+void slowDown();*/
+----------------------------------------------
