@@ -1,0 +1,40 @@
+/*#include <stdio.h>
+#define MAX(a, b) a > b ?c = a:b
+
+
+int main()
+{
+	int a = 7;
+	int b = 5;
+	int c = 0;
+	MAX (a, b);
+	printf("%i",c);
+}*/
+
+#include <stdio.h>
+#define MAX(a, b) (a > b ? a:b)
+
+
+int main()
+{
+
+	int a = 7;
+	int b = 5;
+	printf("%i",MAX(a, b));
+}
+---------------------------------
+#include <stdio.h>
+#define PRINT(left,right) printf("%i",left ## right)
+
+
+int main()
+{
+
+	int left = 7;
+	int right = 5;
+	int leftright = 64;
+	PRINT(left, right);
+}
+----------------------------
+
+
